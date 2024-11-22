@@ -1,27 +1,9 @@
 import streamlit as st
 import pandas as pd
 import pickle
-import plotly.express as px
 
 # Load your data
 df = pd.read_csv('AQI and Lat Long of Countries.csv')
-
-# Create the Plotly map
-fig = px.scatter_mapbox(
-    df,
-    lat='lat',
-    lon='lng',
-    color='AQI Category',
-    zoom=2,
-    width=900,
-    height=700,
-    title='Map of Global Air Quality Index'
-)
-fig.update_layout(mapbox_style='open-street-map')
-fig.update_layout(legend=dict(orientation="h"))
-
-# Display the Plotly map in Streamlit
-st.plotly_chart(fig)
 
 # Load your model
 pickle_in = open('aqi_models.pkl', "rb")
