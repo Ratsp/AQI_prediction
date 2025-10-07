@@ -1,13 +1,14 @@
 import streamlit as st
 import pandas as pd
-import pickle
+from joblib import load
+prediction_model = load('aqi_models.joblib')
+
 
 # Load your data
 df = pd.read_csv('AQI and Lat Long of Countries.csv')
 
 # Load your model
-pickle_in = open('aqi_models.pkl', "rb")
-prediction_model = pickle.load(pickle_in)
+prediction_model = load('aqi_models.joblib')
 
 # Define prediction function
 def predict_aqi(CO, Ozone, NO2, PM2_5):
@@ -129,3 +130,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
