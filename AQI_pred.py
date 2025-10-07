@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 from joblib import load
-prediction_model = load('aqi_models.joblib')
 
 
 # Load your data
@@ -130,4 +129,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
 
